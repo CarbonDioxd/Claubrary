@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace Claubrary
 {
     /// <summary>
-    /// Interaction logic for BooksWindow.xaml
+    /// Interaction logic for RegistrationWindow.xaml
     /// </summary>
-    public partial class BooksWindow : Window
+    public partial class EmployeeRegistrationWindow : Window
     {
-        public BooksWindow()
+        public EmployeeRegistrationWindow()
         {
             InitializeComponent();
-        }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

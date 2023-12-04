@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Claubrary
 {
     /// <summary>
-    /// Interaction logic for RegistrationWindow.xaml
+    /// Interaction logic for BookWindow.xaml
     /// </summary>
-    public partial class RegistrationWindow : Window
+    public partial class BookWindow : Window
     {
-        public RegistrationWindow()
+        public BookWindow()
         {
             InitializeComponent();
         }
