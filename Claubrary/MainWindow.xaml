@@ -1,0 +1,79 @@
+﻿<Window x:Class="Claubrary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Claubrary"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="400">
+    <Grid>
+        <Button Content="Books" HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" Height="51" Width="240" FontFamily="Century Gothic" FontSize="20" Background="#FFFBAB67" Foreground="White" BorderBrush="#FFFBAB67"/>
+        <Button Content="History &amp; Logs" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" Height="51" Width="240" FontFamily="Century Gothic" FontSize="20" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
+        <Button Content="Members" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Height="51" Width="240" FontFamily="Century Gothic" FontSize="20" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
+        <Button Content="My Profile" HorizontalAlignment="Center" Margin="0,353,0,0" VerticalAlignment="Top" Height="51" Width="240" Click="Button_Click" FontFamily="Century Gothic" FontSize="20" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
+        <Ellipse HorizontalAlignment="Center" Height="116" Margin="0,51,0,0" Stroke="White" VerticalAlignment="Top" Width="268" StrokeThickness="7" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.811"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.736"/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse HorizontalAlignment="Center" Height="116" Margin="0,140,0,0" Stroke="White" VerticalAlignment="Top" Width="268" StrokeThickness="7" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.811"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.736"/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse HorizontalAlignment="Center" Height="116" Margin="0,229,0,0" Stroke="White" VerticalAlignment="Top" Width="268" StrokeThickness="7" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.811"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.736"/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse HorizontalAlignment="Center" Height="116" Margin="0,318,0,0" Stroke="White" VerticalAlignment="Top" Width="268" StrokeThickness="7" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.811"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.736"/>
+                </TransformGroup>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Button Content="Log Out" HorizontalAlignment="Left" Margin="300,420,0,0" VerticalAlignment="Top" Foreground="#FF677CF1" Background="White" BorderBrush="White" FontFamily="Century Gothic" FontSize="15"/>
+        <Label Content="Welcome, USER" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="15" FontFamily="Century Gothic" Foreground="#FF4F5663"/>
+        <Image HorizontalAlignment="Left" Height="70" Margin="8,212,0,0" VerticalAlignment="Top" Width="61" Source="/0ce149e986243aa7192e3e3c94b4afa4.jpg"/>
+        <Image HorizontalAlignment="Left" Height="70" Margin="314,120,0,0" VerticalAlignment="Top" Width="62" Source="/18a95323f8e6c10be2e67f2745f975d1.jpg" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image HorizontalAlignment="Left" Height="70" Margin="317,301,0,0" VerticalAlignment="Top" Width="62" Source="/752032175d0fc85a533a24b99a846c03.jpg" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+    </Grid>
+</Window>
