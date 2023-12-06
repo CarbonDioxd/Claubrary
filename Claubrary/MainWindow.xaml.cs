@@ -20,9 +20,20 @@ namespace Claubrary
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(string email)
         {
             InitializeComponent();
+
+            lblWelcomeMessage.Content = "Welcome, " + email;
+        }
+
+        private void btnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            Controller.UpdateEmployeeStatus(Auth.EmployeeEmail, false);
+            Auth.EmployeeEmail = "";
+
+            new LoginWindow().Show();
+            this.Close();
         }
     }
 }

@@ -29,5 +29,32 @@ namespace Claubrary
             new EmployeeRegistrationWindow().Show();
             this.Close();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            // Validate Fields
+            if (tbxEmail.Text.Trim().Length < 1)
+            {
+                MessageBox.Show("Please fill out the email field");
+                return;
+            }
+            if (tbxPassword.Text.Trim().Length < 1)
+            {
+                MessageBox.Show("Please fill out the password field");
+                return;
+            }
+
+            if (!Controller.SignInEmployee(tbxEmail.Text, tbxPassword.Text))
+            {
+                MessageBox.Show("Invalid username or password. Please try again.");
+                return;
+            }
+
+            Controller.UpdateEmployeeStatus(tbxEmail.Text, true);
+            Auth.EmployeeEmail = tbxEmail.Text;
+
+            new MainWindow(tbxEmail.Text).Show();
+            this.Close();
+        }
     }
 }

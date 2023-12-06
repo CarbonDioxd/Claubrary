@@ -61,7 +61,7 @@ namespace Claubrary
             // Handle Successful OTP
             if (Controller.VerifyOTP(tbxEmail.Text, tbxOTP.Text))
             {
-                Controller.VerifyEmployee(tbxEmail.Text);
+                Controller.VerifyEmployee(tbxEmail.Text, tbxPassword.Text);
                 MessageBox.Show("Email successfully verified");
 
                 new RegistrationCredentialsEmployee().Show();

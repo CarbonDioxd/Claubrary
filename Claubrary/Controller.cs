@@ -29,9 +29,9 @@ namespace Claubrary
             return false;
         }
 
-        public static void VerifyEmployee(string email)
+        public static void VerifyEmployee(string email, string password)
         {
-            Context.uspVerifyEmployee(email);
+            Context.uspVerifyEmployee(email, password);
         }
 
         public static bool IsEmployeVerifiedOrExists(string email)
@@ -50,6 +50,16 @@ namespace Claubrary
                 MessageBox.Show(e.Message);
                 throw;
             }
+        }
+
+        public static void UpdateEmployeeStatus(string email, bool signIn)
+        {
+            Context.uspSetEmployeeStatus(email, signIn);
+        }
+
+        public static bool SignInEmployee(string email, string password)
+        {
+           return (bool)Context.fnSignIn(email, password);
         }
     }
 }

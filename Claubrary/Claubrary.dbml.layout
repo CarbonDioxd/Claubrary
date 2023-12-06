@@ -83,7 +83,7 @@
         <classShapeMoniker Id="ba2f3602-ec17-4c74-8f8f-9998db5fb593" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 5.46896021294071); (5.81607443490112 : 5.78503464784183 : JumpStart); (5.93392556509888 : 5.90288577803959 : JumpEnd); (6.0625 : 6.03146021294071); (6.0625 : 7.45274983723958); (6.25 : 7.45274983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 5.46896021294071); (6.0625 : 6.03146021294071); (6.0625 : 7.45274983723958); (6.25 : 7.45274983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ClaubraryDataContext/Book/Book_Borrow" />
       <nodes>
         <classShapeMoniker Id="551726fe-f43b-4349-8ecb-2ef3572d0cf6" />
@@ -97,7 +97,7 @@
         <classShapeMoniker Id="30ac88a6-f002-4fe3-b72d-11870a074a88" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 1.81856974283854); (5.79166666666667 : 1.81856974283854 : JumpStart); (5.95833333333333 : 1.81856974283854 : JumpEnd); (6.25 : 1.81856974283854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 1.81856974283854); (6.25 : 1.81856974283854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ClaubraryDataContext/Genre/Genre_BookGenre" />
       <nodes>
         <classShapeMoniker Id="49c5f44f-9368-4a01-a099-3d7dddae6cb7" />
