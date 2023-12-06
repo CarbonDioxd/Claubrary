@@ -32,15 +32,21 @@ namespace Claubrary
                 MessageBox.Show("Please fill out the email field.");
                 return;
             }
+            if (Controller.IsEmployeVerifiedOrExists(tbxEmail.Text))
+            {
+                MessageBox.Show("Email already exists or is already verified. Please log in.");
+                return;
+            }
 
             SMTP.SendEmail(
                     "viraylogan@gmail.com",
                     tbxEmail.Text,
                     "Claubrary One-time Password (OTP)",
-                    "Test OTP"
+                    Controller.SendOTP(tbxEmail.Text, tbxPassword.Text)
                 );
 
             btnVerifyOTP.IsEnabled = true;
+            btnSendOTP.IsEnabled = false;
         }
 
         private void btnVerifyOTP_Click(object sender, RoutedEventArgs e)
@@ -55,12 +61,17 @@ namespace Claubrary
             // Handle Successful OTP
             if (Controller.VerifyOTP(tbxEmail.Text, tbxOTP.Text))
             {
+                Controller.VerifyEmployee(tbxEmail.Text);
+                MessageBox.Show("Email successfully verified");
 
+                new RegistrationCredentialsEmployee().Show();
+                this.Close();
             }
-
-
-            // Handle Failed OTP
-
+            else
+            {
+                // Handle Failed OTP
+                MessageBox.Show("Invalid OTP. Please try again.");
+            }
         }
 
         private void btnLoginHere_Click(object sender, RoutedEventArgs e)

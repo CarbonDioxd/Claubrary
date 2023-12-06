@@ -27,5 +27,15 @@ namespace Claubrary
 
             return false;
         }
+
+        public static void VerifyEmployee(string email)
+        {
+            Context.uspVerifyEmployee(email);
+        }
+
+        public static bool IsEmployeVerifiedOrExists(string email)
+        {
+            return (bool)Context.fnIsEmployeeVerifiedOrExists(email);
+        }
     }
 }

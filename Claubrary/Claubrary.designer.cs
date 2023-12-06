@@ -185,6 +185,19 @@ namespace Claubrary
 		{
 			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, oTP).ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspVerifyEmployee")]
+		public int uspVerifyEmployee([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.fnIsEmployeeVerifiedOrExists", IsComposable=true)]
+		public System.Nullable<bool> fnIsEmployeeVerifiedOrExists([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email)
+		{
+			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email).ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Author")]
@@ -1462,6 +1475,8 @@ namespace Claubrary
 		
 		private string _Address;
 		
+		private System.Nullable<bool> _LoggedIn;
+		
 		private EntitySet<Borrow> _Borrows;
 		
     #region Extensibility Method Definitions
@@ -1490,6 +1505,8 @@ namespace Claubrary
     partial void OnContactNumberChanged();
     partial void OnAddressChanging(string value);
     partial void OnAddressChanged();
+    partial void OnLoggedInChanging(System.Nullable<bool> value);
+    partial void OnLoggedInChanged();
     #endregion
 		
 		public Employee()
@@ -1714,6 +1731,26 @@ namespace Claubrary
 					this._Address = value;
 					this.SendPropertyChanged("Address");
 					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoggedIn", DbType="Bit")]
+		public System.Nullable<bool> LoggedIn
+		{
+			get
+			{
+				return this._LoggedIn;
+			}
+			set
+			{
+				if ((this._LoggedIn != value))
+				{
+					this.OnLoggedInChanging(value);
+					this.SendPropertyChanging();
+					this._LoggedIn = value;
+					this.SendPropertyChanged("LoggedIn");
+					this.OnLoggedInChanged();
 				}
 			}
 		}

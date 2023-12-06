@@ -70,6 +70,7 @@
       <Column Name="BirthDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="ContactNumber" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LoggedIn" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Employee_Borrow" Member="Borrows" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Borrow" />
     </Type>
   </Table>
@@ -119,6 +120,14 @@
   <Function Name="dbo.fnCheckOTP" Method="fnCheckOTP" IsComposable="true">
     <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="OTP" Parameter="oTP" Type="System.String" DbType="NChar(6)" />
+    <Return Type="System.Boolean" />
+  </Function>
+  <Function Name="dbo.uspVerifyEmployee" Method="uspVerifyEmployee">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.fnIsEmployeeVerifiedOrExists" Method="fnIsEmployeeVerifiedOrExists" IsComposable="true">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Boolean" />
   </Function>
 </Database>
