@@ -68,6 +68,9 @@
       <DependentUpon>Claubrary.dbml</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="MyProfileWindow.xaml.cs">
+      <DependentUpon>MyProfileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegistrationCredentials.xaml.cs">
       <DependentUpon>RegistrationCredentials.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MyProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegistrationCredentials.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
