@@ -74,5 +74,40 @@ namespace Claubrary
             return books;
         }
         
+        public static List<Author> GetAuthors() 
+        {
+            List<Author> authors = new List<Author>();
+
+            foreach (Author author in Context.Authors)
+            {
+                authors.Add(author);
+            }
+
+            return authors;
+        }
+
+        public static List<Series> GetAllSeries()
+        {
+            List<Series> seriesList = new List<Series>();
+
+            foreach (Series serie in Context.Series)
+            {
+                seriesList.Add(serie);
+            }
+
+            return seriesList;
+        }
+
+        public static List<Genre> GetGenres()
+        {
+            List<Genre> genres = new List<Genre>();
+
+            foreach (Genre genre in Context.Genres)
+            {
+                genres.Add(genre);
+            }
+
+            return genres;
+        }
     }
 }

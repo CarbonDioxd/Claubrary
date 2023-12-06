@@ -56,6 +56,90 @@ namespace Claubrary
             {
                 cmbxSearchBy.Items.Add(category);
             }
+
+            cmbxSearchBy.SelectedIndex = 0;
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            List<Book> books = Controller.GetBooks();
+            List<Book> results = new List<Book>();
+
+            string filter = cmbxSearchBy.SelectedValue.ToString();
+            string query = tbxSearch.Text.ToUpper();
+
+            foreach (Book book in books)
+            {
+                switch (filter)
+                {
+                    case "Title":
+                        if (book.Title.ToUpper().Contains(query) && book.IsHardcover == cbxHardcover.IsChecked)
+                            results.Add(book);
+                        break;
+                    case "Author":
+                        List<Author> authors = Controller.GetAuthors();
+
+                        foreach (BookAuthor bookAuthorRow in book.BookAuthors)
+                        {
+                            foreach (Author author in authors)
+                            {
+                                string authorName = $"{author.FirstName} {author.MiddleName} {author.LastName}".ToUpper();
+
+                                if (bookAuthorRow.AuthorID == author.AuthorID && 
+                                    authorName.ToUpper().Contains(query) && 
+                                    book.IsHardcover == cbxHardcover.IsChecked)
+                                {
+                                    results.Add(book);
+                                }
+                            }
+                        }
+                        break;
+                    case "Series":
+                        List<Series> seriesList = Controller.GetAllSeries();
+
+                        foreach (Series series in seriesList)
+                        {
+                            if (book.SeriesID == series.SeriesID && 
+                                series.SeriesName.ToUpper().Contains(query) && 
+                                book.IsHardcover == cbxHardcover.IsChecked)
+                            {
+                                results.Add(book);
+                            }
+                        }
+                        break;
+                    case "Year":
+                        int.TryParse(tbxSearch.Text, out int year);
+
+                        if (book.PublishDate.Year == year && book.IsHardcover == cbxHardcover.IsChecked)
+                        {
+                            results.Add(book);
+                        }
+                        break;
+                    case "Genre":
+                        List<Genre> genres = Controller.GetGenres();
+
+                        foreach (BookGenre bookGenreRow in book.BookGenres)
+                        {
+                            foreach (Genre genre in genres)
+                            {
+                                if (bookGenreRow.GenreID == genre.GenreID && 
+                                    genre.Genre1.ToUpper().Contains(query) && 
+                                    book.IsHardcover == cbxHardcover.IsChecked)
+                                {
+                                    results.Add(book);
+                                }
+                            }
+                        }
+                        break;
+                }
+            }
+
+            lbxBooks.Items.Clear();
+
+            foreach (Book book in results)
+            {
+                lbxBooks.Items.Add(book.Title);
+            }
         }
     }
 }
