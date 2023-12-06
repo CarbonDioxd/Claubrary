@@ -35,5 +35,10 @@ namespace Claubrary
             new LoginWindow().Show();
             this.Close();
         }
+
+        private void btnBooks_Click(object sender, RoutedEventArgs e)
+        {
+            new BooksWindow().ShowDialog();
+        }
     }
 }

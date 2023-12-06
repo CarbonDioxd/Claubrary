@@ -61,5 +61,18 @@ namespace Claubrary
         {
            return (bool)Context.fnSignIn(email, password);
         }
+
+        public static List<Book> GetBooks()
+        {
+            List<Book> books = new List<Book>();
+
+            foreach (Book book in Context.Books)
+            {
+                books.Add(book);
+            }
+
+            return books;
+        }
+        
     }
 }

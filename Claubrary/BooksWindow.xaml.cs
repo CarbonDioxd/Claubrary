@@ -22,11 +22,40 @@ namespace Claubrary
         public BooksWindow()
         {
             InitializeComponent();
+
+            LoadBooks();
+            LoadSearchComboBox();
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void LoadBooks()
+        {
+            List<Book> books = Controller.GetBooks();
+
+            foreach (Book book in books)
+            {
+                lbxBooks.Items.Add(book.Title);
+            }
+        }
+        private void LoadSearchComboBox()
+        {
+            List<string> categories = new List<string>()
+            {
+                "Title",
+                "Author",
+                "Series",
+                "Year",
+                "Genre",
+            };
+
+            foreach (string category in categories)
+            {
+                cmbxSearchBy.Items.Add(category);
+            }
         }
     }
 }
