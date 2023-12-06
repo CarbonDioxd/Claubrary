@@ -1,20 +1,18 @@
-﻿<Window x:Class="Claubrary.BooksWindow"
+﻿<Window x:Class="Claubrary.MemberWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Claubrary"
         mc:Ignorable="d"
-        Title="BooksWindow" Height="350" Width="600">
-    <Grid Background="#FFEFEFEF">
+        Title="MemberWindow" Height="350" Width="600" Background="#FFEDEDED">
+    <Grid>
         <TextBox x:Name="tbxSearch" HorizontalAlignment="Left" Margin="216,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A" Height="22" Background="#FFEFEFEF"/>
         <ComboBox x:Name="cmbxSearchBy" HorizontalAlignment="Left" Margin="64,47,0,0" VerticalAlignment="Top" Width="120" BorderBrush="White" Foreground="Black" Background="White"/>
         <Label Content="Search By:" HorizontalAlignment="Left" Margin="60,21,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Century Gothic" Foreground="#FF36373A"/>
-        <Button x:Name="btnSearch" Click="btnSearch_Click" Content="Search" HorizontalAlignment="Left" Margin="470,48,0,0" VerticalAlignment="Top" Width="79" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
-        <Ellipse HorizontalAlignment="Left" Height="36" Margin="456,40,0,0" Stroke="#FFEFEFEF" VerticalAlignment="Top" Width="106" StrokeThickness="5"/>
-        <ListBox x:Name="lbxBooks" Margin="64,81,160,66" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A" OpacityMask="White" Background="#FFEFEFEF" SelectionChanged="ListBox_SelectionChanged"/>
+        <Button x:Name="btnSearch" Click="btnSearch_Click" Content="Search" HorizontalAlignment="Left" Margin="377,48,0,0" VerticalAlignment="Top" Width="79" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
+        <Ellipse HorizontalAlignment="Left" Height="36" Margin="363,40,0,0" Stroke="#FFEFEFEF" VerticalAlignment="Top" Width="106" StrokeThickness="5"/>
+        <ListBox x:Name="lbxBooks" Margin="64,81,160,36" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A" OpacityMask="White" Background="#FFEFEFEF" SelectionChanged="ListBox_SelectionChanged"/>
         <Image HorizontalAlignment="Left" Height="431" Margin="429,97,0,0" VerticalAlignment="Top" Width="185" Source="/d0b7577e6435e847792aa7db48ad6973.jpg"/>
-        <CheckBox x:Name="cbxHardcover" Content="Hardcover" HorizontalAlignment="Left" Margin="365,50,0,0" VerticalAlignment="Top" Foreground="#FF36373A" BorderBrush="#FFFBAB67"/>
-        <Button x:Name ="btnAddBook" Content="Add books" HorizontalAlignment="Right" Margin="0,273,453,0" VerticalAlignment="Top" Foreground="#FF677CF1" Background="#FFEFEFEF" BorderBrush="#FFEFEFEF" FontFamily="Century Gothic" FontSize="15"/>
     </Grid>
 </Window>
