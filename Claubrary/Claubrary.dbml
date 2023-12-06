@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Claubrary" Class="ClaubraryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=FLAGSHIP\SQLEXPRESS;Initial Catalog=Claubrary;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False" SettingsObjectName="Claubrary.Properties.Settings" SettingsPropertyName="ClaubraryConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Author" Member="Authors">
+    <Type Name="Author">
+      <Column Name="AuthorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Author_BookAuthor" Member="BookAuthors" ThisKey="AuthorID" OtherKey="AuthorID" Type="BookAuthor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Book" Member="Books">
+    <Type Name="Book">
+      <Column Name="BookID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PublishDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IsHardcover" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SeriesPart" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SeriesID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Book_BookAuthor" Member="BookAuthors" ThisKey="BookID" OtherKey="BookID" Type="BookAuthor" />
+      <Association Name="Book_BookGenre" Member="BookGenres" ThisKey="BookID" OtherKey="BookID" Type="BookGenre" />
+      <Association Name="Book_Borrow" Member="Borrows" ThisKey="BookID" OtherKey="BookID" Type="Borrow" />
+      <Association Name="Publisher_Book" Member="Publisher" ThisKey="PublisherID" OtherKey="PublisherID" Type="Publisher" IsForeignKey="true" />
+      <Association Name="Series_Book" Member="Series" ThisKey="SeriesID" OtherKey="SeriesID" Type="Series" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookAuthor" Member="BookAuthors">
+    <Type Name="BookAuthor">
+      <Column Name="BookAuthorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AuthorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Author_BookAuthor" Member="Author" ThisKey="AuthorID" OtherKey="AuthorID" Type="Author" IsForeignKey="true" />
+      <Association Name="Book_BookAuthor" Member="Book" ThisKey="BookID" OtherKey="BookID" Type="Book" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookGenre" Member="BookGenres">
+    <Type Name="BookGenre">
+      <Column Name="BookGenreID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GenreID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Book_BookGenre" Member="Book" ThisKey="BookID" OtherKey="BookID" Type="Book" IsForeignKey="true" />
+      <Association Name="Genre_BookGenre" Member="Genre" ThisKey="GenreID" OtherKey="GenreID" Type="Genre" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Borrow" Member="Borrows">
+    <Type Name="Borrow">
+      <Column Name="BorrowID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Book_Borrow" Member="Book" ThisKey="BookID" OtherKey="BookID" Type="Book" IsForeignKey="true" />
+      <Association Name="Employee_Borrow" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Member_Borrow" Member="Member" ThisKey="MemberID" OtherKey="MemberID" Type="Member" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Verified" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OTP" Type="System.String" DbType="NChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ContactNumber" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Employee_Borrow" Member="Borrows" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Borrow" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Genre" Member="Genres">
+    <Type Name="Genre">
+      <Column Name="GenreID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Genre" Member="Genre1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Genre_BookGenre" Member="BookGenres" ThisKey="GenreID" OtherKey="GenreID" Type="BookGenre" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Member" Member="Members">
+    <Type Name="Member">
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MemberIDNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ContactNumber" Type="System.String" DbType="NChar(11) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Member_Borrow" Member="Borrows" ThisKey="MemberID" OtherKey="MemberID" Type="Borrow" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Publisher" Member="Publishers">
+    <Type Name="Publisher">
+      <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Publisher_Book" Member="Books" ThisKey="PublisherID" OtherKey="PublisherID" Type="Book" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Series" Member="Series">
+    <Type Name="Series">
+      <Column Name="SeriesID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SeriesName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Part" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Series_Book" Member="Books" ThisKey="SeriesID" OtherKey="SeriesID" Type="Book" />
+    </Type>
+  </Table>
+  <Function Name="dbo.uspSendOTP" Method="uspSendOTP">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OTP" Parameter="oTP" Type="System.String" DbType="NChar(6)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.fnCheckOTP" Method="fnCheckOTP" IsComposable="true">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OTP" Parameter="oTP" Type="System.String" DbType="NChar(6)" />
+    <Return Type="System.Boolean" />
+  </Function>
+</Database>

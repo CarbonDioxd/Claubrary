@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -61,15 +62,19 @@
     <Compile Include="BookWindow.xaml.cs">
       <DependentUpon>BookWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Claubrary.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Claubrary.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller.cs" />
     <Compile Include="RegistrationCredentials.xaml.cs">
       <DependentUpon>RegistrationCredentials.xaml</DependentUpon>
     </Compile>
     <Compile Include="EmployeeRegistrationWindow.xaml.cs">
       <DependentUpon>EmployeeRegistrationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegistrationCredentialsEmployee.xaml.cs">
-      <DependentUpon>RegistrationCredentialsEmployee.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="SMTP.cs" />
     <Page Include="BooksWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,10 +110,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegistrationCredentialsEmployee.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -124,10 +125,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Claubrary.dbml.layout">
+      <DependentUpon>Claubrary.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Claubrary.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Claubrary.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -159,6 +168,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="490cd05d23bd974b5338a7b89b262e5b.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

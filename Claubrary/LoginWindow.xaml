@@ -11,9 +11,9 @@
         <TextBox HorizontalAlignment="Left" Margin="255,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="257" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="251,134,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Century Gothic" Foreground="#FF36373A"/>
         <TextBox HorizontalAlignment="Left" Margin="255,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="257" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
-        <Button x:Name = "btnRegister" Content="Register here" HorizontalAlignment="Left" Margin="452,188,0,0" VerticalAlignment="Top" BorderBrush="White" Background="White" Foreground="#FF77B3EC" FontFamily="Century Gothic" FontSize="9"/>
+        <Button Click="btnRegister_Click"  x:Name="btnRegister" Content="Register here" HorizontalAlignment="Left" Margin="452,188,0,0" VerticalAlignment="Top" BorderBrush="White" Background="White" Foreground="#FF77B3EC" FontFamily="Century Gothic" FontSize="9"/>
         <Label Content="No account?" HorizontalAlignment="Left" Margin="384,185,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A"/>
-        <Button x:Name ="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="432,216,0,0" VerticalAlignment="Top" Width="79" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="432,216,0,0" VerticalAlignment="Top" Width="79" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
         <Ellipse HorizontalAlignment="Left" Height="36" Margin="418,208,0,0" Stroke="White" VerticalAlignment="Top" Width="106" StrokeThickness="5"/>
         <Image HorizontalAlignment="Left" Height="199" Margin="30,0,0,0" VerticalAlignment="Center" Width="199" Source="/901c016cd8f335a268299214d96a6b14.jpg"/>
     </Grid>

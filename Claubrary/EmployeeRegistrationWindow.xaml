@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="EmployeeRegistrationWindow" Height="300" Width="550">
     <Grid>
-        <Button x:Name="btnVerifyOTP" Content="Verify OTP" HorizontalAlignment="Left" Margin="432,229,0,0" VerticalAlignment="Top" Width="79" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
-        <Ellipse HorizontalAlignment="Left" Height="36" Margin="418,221,0,0" Stroke="White" VerticalAlignment="Top" Width="106" StrokeThickness="5"/>
-        <Button Content="Login here" HorizontalAlignment="Left" Margin="381,196,0,0" VerticalAlignment="Top" BorderBrush="White" Background="White" Foreground="#FF77B3EC" FontFamily="Century Gothic" FontSize="9"/>
-        <Label Content="Already have an account?" HorizontalAlignment="Left" Margin="253,193,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="256,29,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Century Gothic" Foreground="#FF36373A"/>
-        <TextBox HorizontalAlignment="Left" Margin="257,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="257" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
+        <TextBox x:Name="tbxEmail" HorizontalAlignment="Left" Margin="257,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="257" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
+        <Button Click="btnVerifyOTP_Click" IsEnabled="False" x:Name="btnVerifyOTP" Content="Verify OTP" HorizontalAlignment="Left" Margin="432,229,0,0" VerticalAlignment="Top" Width="79" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
+        <Ellipse HorizontalAlignment="Left" Height="36" Margin="418,221,0,0" Stroke="White" VerticalAlignment="Top" Width="106" StrokeThickness="5"/>
+        <Button Click="btnLoginHere_Click" x:Name="btnLoginHere" Content="Login here" HorizontalAlignment="Left" Margin="381,196,0,0" VerticalAlignment="Top" BorderBrush="White" Background="White" Foreground="#FF77B3EC" FontFamily="Century Gothic" FontSize="9"/>
+        <Label Content="Already have an account?" HorizontalAlignment="Left" Margin="253,193,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A"/>
         <Label Content="OTP" HorizontalAlignment="Left" Margin="253,138,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Century Gothic" Foreground="#FF36373A"/>
-        <TextBox HorizontalAlignment="Left" Margin="257,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="94" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
-        <Button x:Name="btnSendOTP" Content="Send OTP" HorizontalAlignment="Left" Margin="365,165,0,0" VerticalAlignment="Top" BorderBrush="#FFFBAB67" Background="#FFFBAB67" Foreground="White" FontFamily="Century Gothic" FontSize="9"/>
+        <TextBox x:Name="tbxOTP" HorizontalAlignment="Left" Margin="257,164,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="94" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
+        <Button Click="btnSendOTP_Click" x:Name="btnSendOTP" Content="Send OTP" HorizontalAlignment="Left" Margin="365,165,0,0" VerticalAlignment="Top" BorderBrush="#FFFBAB67" Background="#FFFBAB67" Foreground="White" FontFamily="Century Gothic" FontSize="9"/>
         <Image HorizontalAlignment="Left" Height="199" Margin="30,0,0,0" VerticalAlignment="Center" Width="199" Source="/685157b84b3831e51d1b51f1d138541c.jpg"/>
         <Ellipse HorizontalAlignment="Left" Height="23" Margin="357,161,0,0" Stroke="White" VerticalAlignment="Top" Width="62" StrokeThickness="3" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
@@ -28,6 +28,6 @@
             </Ellipse.RenderTransform>
         </Ellipse>
         <Label Content="Password" HorizontalAlignment="Left" Margin="253,84,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Century Gothic" Foreground="#FF36373A"/>
-        <TextBox HorizontalAlignment="Left" Margin="257,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="257" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
+        <TextBox x:Name="tbxPassword" HorizontalAlignment="Left" Margin="257,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="257" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
     </Grid>
 </Window>
