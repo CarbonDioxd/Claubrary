@@ -23,5 +23,11 @@ namespace Claubrary
         {
             InitializeComponent();
         }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            new EmployeeRegistrationWindow().Show();
+            this.Close();
+        }
     }
 }
