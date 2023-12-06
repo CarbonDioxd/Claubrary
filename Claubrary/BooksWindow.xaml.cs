@@ -38,7 +38,22 @@ namespace Claubrary
 
             foreach (Book book in books)
             {
-                lbxBooks.Items.Add(book.Title);
+                List<Author> authors = Controller.GetAuthors();
+                string bookEntry = $"{book.Title} by";
+
+                foreach (BookAuthor bookAuthorRow in book.BookAuthors)
+                {
+                    foreach (Author author in authors)
+                    {
+                        if (author.AuthorID == bookAuthorRow.AuthorID)
+                        {
+                            bookEntry += $" {author.FirstName} {author.MiddleName} {author.LastName} ";
+                        }
+                    }
+                }
+
+                bookEntry += $"({book.PublishDate.Year})";
+                lbxBooks.Items.Add(bookEntry);
             }
         }
         private void LoadSearchComboBox()
@@ -140,6 +155,27 @@ namespace Claubrary
             {
                 lbxBooks.Items.Add(book.Title);
             }
+
+            foreach (Book book in results)
+            {
+                List<Author> authors = Controller.GetAuthors();
+                string bookEntry = $"{book.Title} by";
+
+                foreach (BookAuthor bookAuthorRow in book.BookAuthors)
+                {
+                    foreach (Author author in authors)
+                    {
+                        if (author.AuthorID == bookAuthorRow.AuthorID)
+                        {
+                            bookEntry += $" {author.FirstName} {author.MiddleName} {author.LastName} ";
+                        }
+                    }
+                }
+
+                bookEntry += $"({book.PublishDate.Year})";
+                lbxBooks.Items.Add(bookEntry);
+            }
+
         }
     }
 }
