@@ -10,7 +10,7 @@
         <Button x:Name ="btnBooks" Content="Books" HorizontalAlignment="Center" Margin="0,83,0,0" VerticalAlignment="Top" Height="51" Width="240" FontFamily="Century Gothic" FontSize="20" Background="#FFFBAB67" Foreground="White" BorderBrush="#FFFBAB67"/>
         <Button x:Name ="btnHistoryLogs" Content="History &amp; Logs" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" Height="51" Width="240" FontFamily="Century Gothic" FontSize="20" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
         <Button x:Name ="btnMembers"  Content="Members" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Height="51" Width="240" FontFamily="Century Gothic" FontSize="20" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
-        <Button x:Name ="btnMyProfile" Content="My Profile" HorizontalAlignment="Center" Margin="0,353,0,0" VerticalAlignment="Top" Height="51" Width="240" Click="Button_Click" FontFamily="Century Gothic" FontSize="20" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
+        <Button x:Name ="btnMyProfile" Content="My Profile" HorizontalAlignment="Center" Margin="0,353,0,0" VerticalAlignment="Top" Height="51" Width="240" FontFamily="Century Gothic" FontSize="20" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
         <Ellipse HorizontalAlignment="Center" Height="116" Margin="0,51,0,0" Stroke="White" VerticalAlignment="Top" Width="268" StrokeThickness="7" RenderTransformOrigin="0.5,0.5">
             <Ellipse.RenderTransform>
                 <TransformGroup>
@@ -52,7 +52,7 @@
             </Ellipse.RenderTransform>
         </Ellipse>
         <Button x:Name ="btnLogOut" Content="Log Out" HorizontalAlignment="Left" Margin="300,420,0,0" VerticalAlignment="Top" Foreground="#FF677CF1" Background="White" BorderBrush="White" FontFamily="Century Gothic" FontSize="15"/>
-        <Label Content="Welcome, USER" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="15" FontFamily="Century Gothic" Foreground="#FF4F5663"/>
+        <Label x:Name="lblWelcomeMessage" Content="Welcome, USER" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" FontSize="15" FontFamily="Century Gothic" Foreground="#FF4F5663"/>
         <Image HorizontalAlignment="Left" Height="70" Margin="8,212,0,0" VerticalAlignment="Top" Width="61" Source="/0ce149e986243aa7192e3e3c94b4afa4.jpg"/>
         <Image HorizontalAlignment="Left" Height="70" Margin="314,120,0,0" VerticalAlignment="Top" Width="62" Source="/18a95323f8e6c10be2e67f2745f975d1.jpg" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>

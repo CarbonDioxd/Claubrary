@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Claubrary
 {
@@ -36,6 +37,19 @@ namespace Claubrary
         public static bool IsEmployeVerifiedOrExists(string email)
         {
             return (bool)Context.fnIsEmployeeVerifiedOrExists(email);
+        }
+
+        public static void UpdateEmployeeDetails(string firstName, string middleName, string lastName, DateTime birthdate, string contactNo, string address)
+        {
+            try
+            {
+                Context.uspUpdateEmployeeDetails(firstName, middleName, lastName, birthdate, contactNo, address);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                throw;
+            }
         }
     }
 }

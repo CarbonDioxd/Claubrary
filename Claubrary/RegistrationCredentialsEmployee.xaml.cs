@@ -23,5 +23,22 @@ namespace Claubrary
         {
             InitializeComponent();
         }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Controller.UpdateEmployeeDetails(tbxFirstName.Text, tbxMiddleName.Text, tbxLastName.Text, (DateTime)dpDate.SelectedDate, tbxContactNumber.Text, tbxAddress.Text);
+                MessageBox.Show("Registration Complete!");
+                
+                new LoginWindow().Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
     }
 }
