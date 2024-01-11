@@ -75,6 +75,32 @@ namespace Claubrary
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            Search();
+        }
+
+        private void lbxBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbxBooks.SelectedIndex < Books.Count && lbxBooks.SelectedIndex > -1)
+                new BookWindow(Books[lbxBooks.SelectedIndex]).ShowDialog();
+        }
+
+        private void btnAddBook_Click(object sender, RoutedEventArgs e)
+        {
+            new AddBookWindow().ShowDialog();
+            lbxBooks.Items.Clear();
+            LoadBooks();
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Search();
+            }
+        }
+
+        private void Search()
+        {
             List<Book> books = Controller.GetBooks();
             List<Book> results = new List<Book>();
 
@@ -98,8 +124,8 @@ namespace Claubrary
                             {
                                 string authorName = $"{author.FirstName} {author.MiddleName} {author.LastName}".ToUpper();
 
-                                if (bookAuthorRow.AuthorID == author.AuthorID && 
-                                    authorName.ToUpper().Contains(query) && 
+                                if (bookAuthorRow.AuthorID == author.AuthorID &&
+                                    authorName.ToUpper().Contains(query) &&
                                     book.IsHardcover == cbxHardcover.IsChecked)
                                 {
                                     results.Add(book);
@@ -112,8 +138,8 @@ namespace Claubrary
 
                         foreach (Series series in seriesList)
                         {
-                            if (book.SeriesID == series.SeriesID && 
-                                series.SeriesName.ToUpper().Contains(query) && 
+                            if (book.SeriesID == series.SeriesID &&
+                                series.SeriesName.ToUpper().Contains(query) &&
                                 book.IsHardcover == cbxHardcover.IsChecked)
                             {
                                 results.Add(book);
@@ -135,8 +161,8 @@ namespace Claubrary
                         {
                             foreach (Genre genre in genres)
                             {
-                                if (bookGenreRow.GenreID == genre.GenreID && 
-                                    genre.Genre1.ToUpper().Contains(query) && 
+                                if (bookGenreRow.GenreID == genre.GenreID &&
+                                    genre.Genre1.ToUpper().Contains(query) &&
                                     book.IsHardcover == cbxHardcover.IsChecked)
                                 {
                                     results.Add(book);
@@ -170,20 +196,6 @@ namespace Claubrary
                 bookEntry += $"({book.PublishDate.Year})";
                 lbxBooks.Items.Add(bookEntry);
             }
-
-        }
-
-        private void lbxBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (lbxBooks.SelectedIndex < Books.Count && lbxBooks.SelectedIndex > -1)
-                new BookWindow(Books[lbxBooks.SelectedIndex]).ShowDialog();
-        }
-
-        private void btnAddBook_Click(object sender, RoutedEventArgs e)
-        {
-            new AddBookWindow().ShowDialog();
-            lbxBooks.Items.Clear();
-            LoadBooks();
         }
     }
 }

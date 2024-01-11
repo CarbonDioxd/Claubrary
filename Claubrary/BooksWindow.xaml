@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Claubrary"
         mc:Ignorable="d"
-        Title="BooksWindow" Height="350" Width="600">
+        Title="BooksWindow" Height="350" Width="600" KeyUp="Window_KeyUp">
     <Grid Background="#FFEFEFEF">
         <TextBox x:Name="tbxSearch" HorizontalAlignment="Left" Margin="216,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A" Height="22" Background="#FFEFEFEF"/>
         <ComboBox x:Name="cmbxSearchBy" HorizontalAlignment="Left" Margin="64,47,0,0" VerticalAlignment="Top" Width="120" BorderBrush="White" Foreground="Black" Background="White"/>
