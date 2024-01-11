@@ -107,6 +107,7 @@ namespace Claubrary
             string filter = cmbxSearchBy.SelectedValue.ToString();
             string query = tbxSearch.Text.ToUpper();
 
+            // Search based on a filter
             foreach (Book book in books)
             {
                 switch (filter)
@@ -173,6 +174,7 @@ namespace Claubrary
                 }
             }
 
+            // Refresh Display
             lbxBooks.Items.Clear();
 
             Books = results;
