@@ -175,7 +175,7 @@ namespace Claubrary
 
         private void lbxBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lbxBooks.SelectedIndex < Books.Count)
+            if (lbxBooks.SelectedIndex < Books.Count && lbxBooks.SelectedIndex > -1)
                 new BookWindow(Books[lbxBooks.SelectedIndex]).ShowDialog();
         }
 
