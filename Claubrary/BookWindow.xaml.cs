@@ -101,15 +101,7 @@ namespace Claubrary
             // Borrow
             if ((bool)rbBorrow.IsChecked)
             {
-                //if ((bool)Controller.BorrowBook(Members[cmbxMembers.SelectedIndex].MemberID, Book.BookID))
-                //{
-                //    MessageBox.Show("Book issued successfully.");
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Could not issue book. It may be out of stock.");
-                //}
-                if (ToggleBorrow)
+                if ((bool)Controller.BorrowBook(Members[cmbxMembers.SelectedIndex].MemberID, Book.BookID))
                 {
                     MessageBox.Show("Book issued successfully.");
                 }
@@ -117,33 +109,40 @@ namespace Claubrary
                 {
                     MessageBox.Show("Could not issue book. It may be out of stock.");
                 }
+                //if (ToggleBorrow)
+                //{
+                //    MessageBox.Show("Book issued successfully.");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Could not issue book. It may be out of stock.");
+                //}
 
-                ToggleBorrow = !ToggleBorrow;
+                //ToggleBorrow = !ToggleBorrow;
             }
 
             // Return
             else
             {
-                //if ((bool)Controller.ReturnBook(Members[cmbxMembers.SelectedIndex].MemberID, Book.BookID))
-                //{
-                //    MessageBox.Show("Book returned successfully.");
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Failed to return book. It may not have been previously borrowed.");
-                //}
-
-
-                if (ToggleReturn)
+                if ((bool)Controller.ReturnBook(Members[cmbxMembers.SelectedIndex].MemberID, Book.BookID))
                 {
-                    MessageBox.Show("Book return successfully.");
+                    MessageBox.Show("Book returned successfully.");
                 }
                 else
                 {
                     MessageBox.Show("Failed to return book. It may not have been previously borrowed.");
                 }
 
-                ToggleReturn = !ToggleReturn;
+                //if (ToggleReturn)
+                //{
+                //    MessageBox.Show("Book return successfully.");
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Failed to return book. It may not have been previously borrowed.");
+                //}
+
+                //ToggleReturn = !ToggleReturn;
             }
         }
 

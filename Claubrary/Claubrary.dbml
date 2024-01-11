@@ -136,20 +136,6 @@
     <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.uspReturnBook" Method="uspReturnBook">
-    <Parameter Name="memberID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bookID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.uspBorrowBook" Method="uspBorrowBook">
-    <Parameter Name="memberID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="bookID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="dueDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="employeeEmail" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.uspSendOTP" Method="uspSendOTP">
     <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
@@ -191,6 +177,20 @@
     <Parameter Name="seriesId" Type="System.Int32" DbType="Int" />
     <Parameter Name="publisherId" Type="System.Int32" DbType="Int" />
     <Parameter Name="stock" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspBorrowBook" Method="uspBorrowBook">
+    <Parameter Name="memberID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bookID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dueDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="employeeEmail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReturnBook" Method="uspReturnBook">
+    <Parameter Name="memberID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bookID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
