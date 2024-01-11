@@ -6,28 +6,36 @@
         xmlns:local="clr-namespace:Claubrary"
         mc:Ignorable="d"
         Title="AddBookWindow" Height="280" Width="530" Background="#FFF9F9F9">
-	<Grid>
-		<CheckBox x:Name="cbxHardcover" Content="Hardcover" HorizontalAlignment="Left" Margin="326,184,0,0" VerticalAlignment="Top" Foreground="#FF36373A" BorderBrush="#FFFBAB67"/>
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="176" Margin="36,43,0,0" VerticalAlignment="Top" Width="176" Source="/0ce149e986243aa7192e3e3c94b4afa4.jpg"/>
 
-		<Button x:Name="btnAddBook" Content="Add Book" Click="btnAddBook_Click" HorizontalAlignment="Left" Margin="413,204,0,0" VerticalAlignment="Top" Width="45" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White" FontSize="8" Height="14"/>
-		<Ellipse HorizontalAlignment="Left" Height="30" Margin="406,196,0,0" Stroke="#FFFBFBFB" VerticalAlignment="Top" Width="58" StrokeThickness="5"/>
-		<Label Content="Title" HorizontalAlignment="Left" Margin="248,21,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="22" Width="54"/>
-		<TextBox HorizontalAlignment="Left" Margin="252,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A" Height="15"/>
-		<Label Content="Publisher Name" HorizontalAlignment="Left" Margin="242,68,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="22" Width="78"/>
-		<DatePicker HorizontalAlignment="Left" Margin="325,89,0,0" VerticalAlignment="Top" Foreground="#FF36373A" BorderBrush="#FFFBAB67" Width="144" FontFamily="Century Gothic"/>
-		<Label Content="Publish Date" HorizontalAlignment="Left" Margin="321,68,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="22" Width="82"/>
-		<Image HorizontalAlignment="Left" Height="176" Margin="36,43,0,0" VerticalAlignment="Top" Width="176" Source="/0ce149e986243aa7192e3e3c94b4afa4.jpg"/>
-		<Label Content="Series Name" HorizontalAlignment="Left" Margin="242,119,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="20" Width="66"/>
-		<Label Content="Series Part" HorizontalAlignment="Left" Margin="318,119,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="20" Width="66"/>
-		<TextBox HorizontalAlignment="Left" Margin="321,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A" Height="15"/>
-		<Label Content="Stock" HorizontalAlignment="Left" Margin="244,164,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="20" Width="66"/>
-		<TextBox HorizontalAlignment="Left" Margin="251,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A" Height="15"/>
-		<Label Content="Author Name" HorizontalAlignment="Left" Margin="389,118,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="22" Width="78"/>
-		<Button x:Name="btnAddPublisher" Click="btnAddPublisher_Click" Content="Add Publisher" HorizontalAlignment="Left" Margin="252,106,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FF1AA8E4" FontSize="7" Background="{x:Null}"/>
-		<Button x:Name="btnAddSeries" Click="btnAddSeries_Click"  Content="Add Series" HorizontalAlignment="Left" Margin="252,154,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FF1AA8E4" FontSize="7" Background="{x:Null}"/>
-		<Button x:Name="btnAddAuthor" Click="btnAddAuthor_Click" Content="Add Author" HorizontalAlignment="Left" Margin="394,158,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FF1AA8E4" FontSize="7" Background="{x:Null}"/>
-		<ComboBox HorizontalAlignment="Left" Margin="248,89,0,0" VerticalAlignment="Top" Width="60" Height="19"/>
-		<ComboBox HorizontalAlignment="Left" Margin="394,139,0,0" VerticalAlignment="Top" Width="60" Height="19"/>
-		<ComboBox HorizontalAlignment="Left" Margin="248,137,0,0" VerticalAlignment="Top" Width="60" Height="19"/>
-	</Grid>
+        <Label Content="Title" HorizontalAlignment="Left" Margin="248,21,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="22" Width="54"/>
+        <TextBox x:Name="tbxTitle" HorizontalAlignment="Left" Margin="252,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A" Height="15"/>
+        
+        <Label Content="Publisher Name" HorizontalAlignment="Left" Margin="242,68,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="22" Width="78"/>
+        <ComboBox x:Name="cbxPublisher" HorizontalAlignment="Left" Margin="248,89,0,0" VerticalAlignment="Top" Width="60" Height="19"/>
+        <Button x:Name="btnAddPublisher" Click="btnAddPublisher_Click" Content="Add Publisher" HorizontalAlignment="Left" Margin="263,106,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FF1AA8E4" FontSize="7" Background="{x:Null}"/>
+        
+        <Label Content="Publish Date" HorizontalAlignment="Left" Margin="321,68,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="22" Width="82"/>
+        <DatePicker x:Name="dpDate" HorizontalAlignment="Left" Margin="325,89,0,0" VerticalAlignment="Top" Foreground="#FF36373A" BorderBrush="#FFFBAB67" Width="144" FontFamily="Century Gothic"/>
+        
+        <Label Content="Series Name" HorizontalAlignment="Left" Margin="242,119,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="20" Width="66"/>
+        <ComboBox x:Name="cbxSeries" HorizontalAlignment="Left" Margin="248,137,0,0" VerticalAlignment="Top" Width="60" Height="19"/>
+        <Button x:Name="btnAddSeries" Click="btnAddSeries_Click"  Content="Add Series" HorizontalAlignment="Left" Margin="273,155,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FF1AA8E4" FontSize="7" Background="{x:Null}"/>
+        
+        <Label Content="Series Part" HorizontalAlignment="Left" Margin="318,119,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="20" Width="66"/>
+        <TextBox x:Name="tbxSeriesPart" HorizontalAlignment="Left" Margin="321,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A" Height="15"/>
+        <Label Content="Stock" HorizontalAlignment="Left" Margin="244,164,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="20" Width="66"/>
+        <TextBox x:Name="tbxStock" HorizontalAlignment="Left" Margin="251,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A" Height="15"/>
+        
+        <Label Content="Author Name" HorizontalAlignment="Left" Margin="389,118,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A" Height="22" Width="78"/>
+        <ComboBox x:Name="cbxAuthor" HorizontalAlignment="Left" Margin="394,139,0,0" VerticalAlignment="Top" Width="60" Height="19"/>
+        <Button x:Name="btnAddAuthor" Click="btnAddAuthor_Click" Content="Add Author" HorizontalAlignment="Left" Margin="415,158,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="#FF1AA8E4" FontSize="7" Background="{x:Null}"/>
+        
+        <CheckBox x:Name="chkbxHardcover" Content="Hardcover" HorizontalAlignment="Left" Margin="326,184,0,0" VerticalAlignment="Top" Foreground="#FF36373A" BorderBrush="#FFFBAB67"/>
+        
+        <Ellipse HorizontalAlignment="Left" Height="30" Margin="406,196,0,0" Stroke="#FFFBFBFB" VerticalAlignment="Top" Width="58" StrokeThickness="5"/>
+        
+        <Button x:Name="btnAddBook" Content="Add Book" Click="btnAddBook_Click" HorizontalAlignment="Left" Margin="413,204,0,0" VerticalAlignment="Top" Width="45" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White" FontSize="8" Height="14"/>
+    </Grid>
 </Window>

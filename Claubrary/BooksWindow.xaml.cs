@@ -182,6 +182,8 @@ namespace Claubrary
         private void btnAddBook_Click(object sender, RoutedEventArgs e)
         {
             new AddBookWindow().ShowDialog();
+            lbxBooks.Items.Clear();
+            LoadBooks();
         }
     }
 }

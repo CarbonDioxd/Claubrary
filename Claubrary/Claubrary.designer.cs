@@ -255,6 +255,13 @@ namespace Claubrary
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, parts);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddBook")]
+		public int uspAddBook([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> authorId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> publishDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] System.Nullable<bool> isHardcover, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> seriesPart, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> seriesId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> publisherId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> stock)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), title, authorId, publishDate, isHardcover, seriesPart, seriesId, publisherId, stock);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Author")]

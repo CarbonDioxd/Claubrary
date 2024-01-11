@@ -81,6 +81,19 @@ namespace Claubrary
             return success;
         }
 
+        public static void AddBook(string title, int authorID, DateTime date, bool isHardcover, int? seriesPart, int? seriesId, int publisherId, int? stock)
+        {
+            try
+            {
+                Context.uspAddBook(title, authorID, date, isHardcover, seriesPart, seriesId, publisherId, stock);
+                MessageBox.Show("Book added successfully!");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"Failed to add book: {e.Message}");
+            }
+        }
+
         public static List<Book> GetBooks()
         {
             List<Book> books = new List<Book>();
