@@ -16,5 +16,6 @@
         <Image HorizontalAlignment="Left" Height="431" Margin="429,97,0,0" VerticalAlignment="Top" Width="185" Source="/d0b7577e6435e847792aa7db48ad6973.jpg"/>
         <CheckBox x:Name="cbxHardcover" Content="Hardcover" HorizontalAlignment="Left" Margin="365,50,0,0" VerticalAlignment="Top" Foreground="#FF36373A" BorderBrush="#FFFBAB67"/>
         <Button x:Name ="btnAddBook" Click="btnAddBook_Click" Content="Add books" HorizontalAlignment="Right" Margin="0,273,453,0" VerticalAlignment="Top" Foreground="#FF677CF1" Background="#FFEFEFEF" BorderBrush="#FFEFEFEF" FontFamily="Century Gothic" FontSize="15"/>
+        <Button x:Name ="btnViewAll" Click="btnViewAll_Click" Content="View All" HorizontalAlignment="Right" Margin="0,273,160,0" VerticalAlignment="Top" Foreground="#FF677CF1" Background="#FFEFEFEF" BorderBrush="#FFEFEFEF" FontFamily="Century Gothic" FontSize="15"/>
     </Grid>
 </Window>

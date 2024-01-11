@@ -199,5 +199,11 @@ namespace Claubrary
                 lbxBooks.Items.Add(bookEntry);
             }
         }
+
+        private void btnViewAll_Click(object sender, RoutedEventArgs e)
+        {
+            lbxBooks.Items.Clear();
+            LoadBooks();
+        }
     }
 }

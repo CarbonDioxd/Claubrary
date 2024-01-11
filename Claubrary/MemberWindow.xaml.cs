@@ -126,5 +126,10 @@ namespace Claubrary
 
 
         }
+
+        private void btnViewAll_Click_1(object sender, RoutedEventArgs e)
+        {
+            LoadMembers();
+        }
     }
 }
