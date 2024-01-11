@@ -66,50 +66,91 @@ namespace Claubrary
 
             foreach (Borrow borrow in borrows)
             {
-                lbxHistory.Items.Add($"{borrow.Book.Title} ({borrow.BorrowDate}) - Due in 7 day/s");
+                int due = borrow.DueDate.Subtract(DateTime.Today).Days;
+                if (borrow.ReturnDate == null)
+                    lbxHistory.Items.Add($"{borrow.Book.Title} ({borrow.BorrowDate}) - Due in {(due < 0 ? "OVERDUE" : due.ToString()) + " day/s"}");
             }
         }
 
         private void dpFirstDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            //StartDate = (DateTime)dpFirstDate.SelectedDate;
+            StartDate = (DateTime)dpFirstDate.SelectedDate;
         }
 
         private void dpSecondDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            //EndDate = (DateTime)dpSecondDate.SelectedDate;
+            EndDate = (DateTime)dpSecondDate.SelectedDate;
 
-            //if (StartDate != null)
-            //{
-            //    // Filter History
-            //}
-            if (Toggle)
+            if (StartDate != null)
+            {
                 lbxHistory.Items.Clear();
-            else
-                LoadHistory(Member);
 
-            Toggle = !Toggle;
+                // Filter History
+                List<Borrow> borrows = Controller.GetBorrowsFromMember(Member);
+
+                foreach (Borrow borrow in borrows)
+                {
+                    switch ((bool)chkbxReturned.IsChecked)
+                    {
+                        case true:
+                            if (borrow.ReturnDate == null)
+                                continue;
+                            if (borrow.BorrowDate >= StartDate && (DateTime)borrow.ReturnDate <= EndDate)
+                            {
+                                int due = borrow.DueDate.Subtract(DateTime.Today).Days;
+                                lbxHistory.Items.Add($"{borrow.Book.Title} ({borrow.BorrowDate}) - Due in {(due < 0 ? "OVERDUE" : due.ToString()) + " day/s"}");
+                            }
+                            break;
+                        case false:
+                            if (borrow.BorrowDate >= StartDate && borrow.BorrowDate <= EndDate)
+                            {
+                                int due = borrow.DueDate.Subtract(DateTime.Today).Days;
+                                lbxHistory.Items.Add($"{borrow.Book.Title} ({borrow.BorrowDate}) - Due in {(due < 0 ? "OVERDUE" : due.ToString()) + " day/s"}");
+                            }
+                            break;
+                    }
+                }
+
+            }
+
+            //if (Toggle)
+            //    lbxHistory.Items.Clear();
+            //else
+            //    LoadHistory(Member);
+
+            //Toggle = !Toggle;
         }
 
-        private void tbxLastName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void btnReturned_Checked(object sender, RoutedEventArgs e)
+        private void chkbxReturned_Checked(object sender, RoutedEventArgs e)
         {
             lbxHistory.Items.Clear();
+
+            // Filter History
+            List<Borrow> borrows = Controller.GetBorrowsFromMember(Member);
+
+            foreach (Borrow borrow in borrows)
+            {
+                if (borrow.ReturnDate == null)
+                    continue;
+
+                int due = borrow.DueDate.Subtract(DateTime.Today).Days;
+                lbxHistory.Items.Add($"{borrow.Book.Title} ({borrow.BorrowDate}) - Due in {(due < 0 ? "OVERDUE" : due.ToString()) + " day/s"}");
+         
+            }
         }
 
-        private void btnReturned_Unchecked(object sender, RoutedEventArgs e)
+        private void chkbxReturned_Unchecked(object sender, RoutedEventArgs e)
         {
-            LoadHistory(Member);
+            lbxHistory.Items.Clear();
 
-        }
+            // Filter History
+            List<Borrow> borrows = Controller.GetBorrowsFromMember(Member);
 
-        private void dpFirstDate_SelectedDateChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
+            foreach (Borrow borrow in borrows)
+            {
+                int due = borrow.DueDate.Subtract(DateTime.Today).Days;
+                lbxHistory.Items.Add($"{borrow.Book.Title} ({borrow.BorrowDate}) - Due in {(due < 0 ? "OVERDUE" : due.ToString()) + " day/s"}");
+            }
         }
     }
 }
