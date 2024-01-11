@@ -32,19 +32,35 @@ namespace Claubrary
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            LogIn();
+            this.Close();
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+
+                LogIn();
+                this.Close();
+            }
+        }
+
+        private void LogIn()
+        {
             // Validate Fields
             if (tbxEmail.Text.Trim().Length < 1)
             {
                 MessageBox.Show("Please fill out the email field");
                 return;
             }
-            if (tbxPassword.Text.Trim().Length < 1)
+            if (pbxPassword.Password.Trim().Length < 1)
             {
                 MessageBox.Show("Please fill out the password field");
                 return;
             }
 
-            if (!Controller.SignInEmployee(tbxEmail.Text, tbxPassword.Text))
+            if (!Controller.SignInEmployee(tbxEmail.Text, pbxPassword.Password))
             {
                 MessageBox.Show("Invalid username or password. Please try again.");
                 return;
@@ -54,7 +70,6 @@ namespace Claubrary
             Auth.EmployeeEmail = tbxEmail.Text;
 
             new MainWindow(tbxEmail.Text).Show();
-            this.Close();
         }
     }
 }

@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Claubrary"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="550">
+        Title="LoginWindow" Height="300" Width="550" KeyUp="Window_KeyUp">
     <Grid>
         <Label Content="Email" HorizontalAlignment="Left" Margin="251,54,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Century Gothic" Foreground="#FF36373A"/>
         <TextBox x:Name="tbxEmail" HorizontalAlignment="Left" Margin="255,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="257" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
         
         <Label Content="Password" HorizontalAlignment="Left" Margin="251,134,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Century Gothic" Foreground="#FF36373A"/>
-        <TextBox x:Name="tbxPassword" HorizontalAlignment="Left" Margin="255,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="257" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A"/>
+        <PasswordBox x:Name="pbxPassword" HorizontalAlignment="Left" Margin="255,160,0,0" VerticalAlignment="Top" Width="257" BorderBrush="#FFFBAB67" FontFamily="Century Gothic" FontSize="13" Foreground="#FF36373A" />
         
         <Button Click="btnRegister_Click"  x:Name="btnRegister" Content="Register here" HorizontalAlignment="Left" Margin="452,188,0,0" VerticalAlignment="Top" BorderBrush="White" Background="White" Foreground="#FF77B3EC" FontFamily="Century Gothic" FontSize="9"/>
         <Label Content="No account?" HorizontalAlignment="Left" Margin="384,185,0,0" VerticalAlignment="Top" FontSize="9" FontFamily="Century Gothic" Foreground="#FF36373A"/>
