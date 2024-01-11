@@ -33,16 +33,13 @@ namespace Claubrary
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             LogIn();
-            this.Close();
         }
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-
                 LogIn();
-                this.Close();
             }
         }
 
@@ -70,6 +67,7 @@ namespace Claubrary
             Auth.EmployeeEmail = tbxEmail.Text;
 
             new MainWindow(tbxEmail.Text).Show();
+            this.Close();
         }
     }
 }
