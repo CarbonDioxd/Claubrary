@@ -32,6 +32,11 @@ namespace Claubrary
                 MessageBox.Show("Please fill out the email field.");
                 return;
             }
+            if (tbxPassword.Text.Trim().Length < 1)
+            {
+                MessageBox.Show("Please fill out the password field.");
+                return;
+            }
             if (Controller.IsEmployeVerifiedOrExists(tbxEmail.Text))
             {
                 MessageBox.Show("Email already exists or is already verified. Please log in.");
@@ -64,7 +69,7 @@ namespace Claubrary
                 Controller.VerifyEmployee(tbxEmail.Text, tbxPassword.Text);
                 MessageBox.Show("Email successfully verified");
 
-                new RegistrationCredentialsEmployee().Show();
+                new RegistrationCredentialsEmployee(tbxPassword.Text).Show();
                 this.Close();
             }
             else

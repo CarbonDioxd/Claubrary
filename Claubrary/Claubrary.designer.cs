@@ -172,14 +172,6 @@ namespace Claubrary
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSendOTP")]
-		public int uspSendOTP([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OTP", DbType="NChar(6)")] ref string oTP)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, oTP);
-			oTP = ((string)(result.GetParameterValue(2)));
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.fnCheckOTP", IsComposable=true)]
 		public System.Nullable<bool> fnCheckOTP([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OTP", DbType="NChar(6)")] string oTP)
 		{
@@ -192,24 +184,10 @@ namespace Claubrary
 			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email).ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateEmployeeDetails")]
-		public int uspUpdateEmployeeDetails([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(11)")] string contactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthDate, contactNo, address);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.fnSignIn", IsComposable=true)]
 		public System.Nullable<bool> fnSignIn([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string password)
 		{
 			return ((System.Nullable<bool>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password).ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateEmployeeDetails")]
-		public int uspUpdateEmployeeDetails1([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(11)")] string contactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthDate, contactNo, address);
-			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSetEmployeeStatus")]
@@ -223,6 +201,58 @@ namespace Claubrary
 		public int uspVerifyEmployee([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string password)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspReturnBook")]
+		public int uspReturnBook([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> memberID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bookID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> success)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), memberID, bookID, success);
+			success = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspBorrowBook")]
+		public int uspBorrowBook([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> memberID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> bookID, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> dueDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string employeeEmail, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> success)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), memberID, bookID, dueDate, employeeEmail, success);
+			success = ((System.Nullable<bool>)(result.GetParameterValue(4)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspSendOTP")]
+		public int uspSendOTP([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OTP", DbType="NChar(6)")] ref string oTP)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password, oTP);
+			oTP = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateEmployeeDetails")]
+		public int uspUpdateEmployeeDetails([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(11)")] string contactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthDate, contactNo, address, password);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddAuthor")]
+		public int uspAddAuthor([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string lastName)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddPublisher")]
+		public int uspAddPublisher([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, address);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddSeries")]
+		public int uspAddSeries([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> parts)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), name, parts);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -409,6 +439,8 @@ namespace Claubrary
 		
 		private int _PublisherID;
 		
+		private System.Nullable<int> _Stock;
+		
 		private EntitySet<BookAuthor> _BookAuthors;
 		
 		private EntitySet<BookGenre> _BookGenres;
@@ -437,6 +469,8 @@ namespace Claubrary
     partial void OnSeriesIDChanged();
     partial void OnPublisherIDChanging(int value);
     partial void OnPublisherIDChanged();
+    partial void OnStockChanging(System.Nullable<int> value);
+    partial void OnStockChanged();
     #endregion
 		
 		public Book()
@@ -593,6 +627,26 @@ namespace Claubrary
 					this._PublisherID = value;
 					this.SendPropertyChanged("PublisherID");
 					this.OnPublisherIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stock", DbType="Int")]
+		public System.Nullable<int> Stock
+		{
+			get
+			{
+				return this._Stock;
+			}
+			set
+			{
+				if ((this._Stock != value))
+				{
+					this.OnStockChanging(value);
+					this.SendPropertyChanging();
+					this._Stock = value;
+					this.SendPropertyChanged("Stock");
+					this.OnStockChanged();
 				}
 			}
 		}

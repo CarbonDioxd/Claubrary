@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddBookWindow.xaml.cs">
+      <DependentUpon>AddBookWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Auth.cs" />
     <Compile Include="BooksWindow.xaml.cs">
       <DependentUpon>BooksWindow.xaml</DependentUpon>
@@ -69,6 +72,9 @@
       <DependentUpon>Claubrary.dbml</DependentUpon>
     </Compile>
     <Compile Include="Controller.cs" />
+    <Compile Include="InputWindow.xaml.cs">
+      <DependentUpon>InputWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MemberWindow.xaml.cs">
       <DependentUpon>MemberWindow.xaml</DependentUpon>
     </Compile>
@@ -85,11 +91,22 @@
       <DependentUpon>RegistrationCredentialsEmployee.xaml</DependentUpon>
     </Compile>
     <Compile Include="SMTP.cs" />
+    <Compile Include="SpecificMemberWindow.xaml.cs">
+      <DependentUpon>SpecificMemberWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AddBookWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="BooksWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BookWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InputWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,6 +148,10 @@
     <Page Include="RegistrationCredentialsEmployee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpecificMemberWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

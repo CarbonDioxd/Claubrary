@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="BookWindow" Height="280" Width="370">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="38,62,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="147" Height="178" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A"/>
-        <Label Content="Details" HorizontalAlignment="Left" Margin="38,32,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" Foreground="#FF36373A"/>
-        <Label Content="Member(s)" HorizontalAlignment="Left" Margin="216,62,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" Foreground="#FF36373A"/>
-        <ComboBox HorizontalAlignment="Left" Margin="216,87,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name = "btnRegister" Content="Add a member" HorizontalAlignment="Left" Margin="274,114,0,0" VerticalAlignment="Top" BorderBrush="White" Background="White" Foreground="#FF77B3EC" FontFamily="Century Gothic" FontSize="7" RenderTransformOrigin="0.5,0.5" Width="66">
+        <TextBox x:Name="tbxBookDetails" HorizontalAlignment="Left" Margin="38,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="147" Height="178" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A"/>
+        <Label Content="Details" HorizontalAlignment="Left" Margin="38,19,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" Foreground="#FF36373A"/>
+        <Label Content="Member(s)" HorizontalAlignment="Left" Margin="216,49,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" Foreground="#FF36373A"/>
+        <ComboBox x:Name="cmbxMembers" HorizontalAlignment="Left" Margin="216,74,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cmbxMembers_SelectionChanged"/>
+        <Button x:Name = "btnRegister" Click="btnRegister_Click" Content="Add a member" HorizontalAlignment="Left" Margin="274,101,0,0" VerticalAlignment="Top" BorderBrush="White" Background="White" Foreground="#FF77B3EC" FontFamily="Century Gothic" FontSize="7" RenderTransformOrigin="0.5,0.5" Width="66">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1"/>
@@ -21,10 +21,10 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <RadioButton Content="Borrow" HorizontalAlignment="Left" Margin="216,144,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A"/>
-        <RadioButton Content="Return" HorizontalAlignment="Left" Margin="216,168,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A"/>
-        <Button x:Name ="btnSubmit" Content="Submit" HorizontalAlignment="Left" Margin="286,216,0,0" VerticalAlignment="Top" Width="54" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
-        <Ellipse HorizontalAlignment="Left" Height="36" Margin="276,208,0,0" Stroke="White" VerticalAlignment="Top" Width="75" StrokeThickness="5"/>
-        <Image HorizontalAlignment="Left" Height="67" Margin="286,132,0,0" VerticalAlignment="Top" Width="65" Source="/490cd05d23bd974b5338a7b89b262e5b.jpg"/>
+        <RadioButton x:Name="rbBorrow" Content="Borrow" IsChecked="True" HorizontalAlignment="Left" Margin="216,131,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A"/>
+        <RadioButton x:Name="rbReturn" Content="Return" HorizontalAlignment="Left" Margin="216,155,0,0" VerticalAlignment="Top" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A"/>
+        <Button x:Name ="btnSubmit" Click="btnSubmit_Click" IsEnabled="False" Content="Submit" HorizontalAlignment="Left" Margin="286,203,0,0" VerticalAlignment="Top" Width="54" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
+        <Ellipse HorizontalAlignment="Left" Height="36" Margin="276,195,0,0" Stroke="White" VerticalAlignment="Top" Width="75" StrokeThickness="5"/>
+        <Image HorizontalAlignment="Left" Height="67" Margin="286,119,0,0" VerticalAlignment="Top" Width="65" Source="/490cd05d23bd974b5338a7b89b262e5b.jpg"/>
     </Grid>
 </Window>

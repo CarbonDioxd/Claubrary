@@ -19,16 +19,22 @@ namespace Claubrary
     /// </summary>
     public partial class RegistrationCredentialsEmployee : Window
     {
+        public string Password { get; set; }
         public RegistrationCredentialsEmployee()
         {
             InitializeComponent();
         }
 
+        public RegistrationCredentialsEmployee(string password)
+        {
+            InitializeComponent();
+            Password = password;
+        }
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                Controller.UpdateEmployeeDetails(tbxFirstName.Text, tbxMiddleName.Text, tbxLastName.Text, (DateTime)dpDate.SelectedDate, tbxContactNumber.Text, tbxAddress.Text);
+                Controller.UpdateEmployeeDetails(tbxFirstName.Text, tbxMiddleName.Text, tbxLastName.Text, (DateTime)dpDate.SelectedDate, tbxContactNumber.Text, tbxAddress.Text, Password);
                 MessageBox.Show("Registration Complete!");
                 
                 new LoginWindow().Show();

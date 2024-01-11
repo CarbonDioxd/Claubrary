@@ -12,9 +12,9 @@
         <Label Content="Search By:" HorizontalAlignment="Left" Margin="60,21,0,0" VerticalAlignment="Top" FontSize="13" FontFamily="Century Gothic" Foreground="#FF36373A"/>
         <Button x:Name="btnSearch" Click="btnSearch_Click" Content="Search" HorizontalAlignment="Left" Margin="470,48,0,0" VerticalAlignment="Top" Width="79" Background="#FFFBAB67" BorderBrush="#FFFBAB67" Foreground="White"/>
         <Ellipse HorizontalAlignment="Left" Height="36" Margin="456,40,0,0" Stroke="#FFEFEFEF" VerticalAlignment="Top" Width="106" StrokeThickness="5"/>
-        <ListBox x:Name="lbxBooks" Margin="64,81,160,66" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A" OpacityMask="White" Background="#FFEFEFEF" SelectionChanged="ListBox_SelectionChanged"/>
+        <ListBox x:Name="lbxBooks" Margin="64,81,160,66" FontFamily="Century Gothic" BorderBrush="#FFFBAB67" Foreground="#FF36373A" OpacityMask="White" Background="#FFEFEFEF" SelectionChanged="lbxBooks_SelectionChanged"/>
         <Image HorizontalAlignment="Left" Height="431" Margin="429,97,0,0" VerticalAlignment="Top" Width="185" Source="/d0b7577e6435e847792aa7db48ad6973.jpg"/>
         <CheckBox x:Name="cbxHardcover" Content="Hardcover" HorizontalAlignment="Left" Margin="365,50,0,0" VerticalAlignment="Top" Foreground="#FF36373A" BorderBrush="#FFFBAB67"/>
-        <Button x:Name ="btnAddBook" Content="Add books" HorizontalAlignment="Right" Margin="0,273,453,0" VerticalAlignment="Top" Foreground="#FF677CF1" Background="#FFEFEFEF" BorderBrush="#FFEFEFEF" FontFamily="Century Gothic" FontSize="15"/>
+        <Button x:Name ="btnAddBook" Click="btnAddBook_Click" Content="Add books" HorizontalAlignment="Right" Margin="0,273,453,0" VerticalAlignment="Top" Foreground="#FF677CF1" Background="#FFEFEFEF" BorderBrush="#FFEFEFEF" FontFamily="Century Gothic" FontSize="15"/>
     </Grid>
 </Window>

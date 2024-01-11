@@ -18,6 +18,7 @@
       <Column Name="SeriesPart" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SeriesID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Book_BookAuthor" Member="BookAuthors" ThisKey="BookID" OtherKey="BookID" Type="BookAuthor" />
       <Association Name="Book_BookGenre" Member="BookGenres" ThisKey="BookID" OtherKey="BookID" Type="BookGenre" />
       <Association Name="Book_Borrow" Member="Borrows" ThisKey="BookID" OtherKey="BookID" Type="Borrow" />
@@ -111,12 +112,6 @@
       <Association Name="Series_Book" Member="Books" ThisKey="SeriesID" OtherKey="SeriesID" Type="Book" />
     </Type>
   </Table>
-  <Function Name="dbo.uspSendOTP" Method="uspSendOTP">
-    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="OTP" Parameter="oTP" Type="System.String" DbType="NChar(6)" Direction="InOut" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.fnCheckOTP" Method="fnCheckOTP" IsComposable="true">
     <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="OTP" Parameter="oTP" Type="System.String" DbType="NChar(6)" />
@@ -126,28 +121,10 @@
     <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Boolean" />
   </Function>
-  <Function Name="dbo.uspUpdateEmployeeDetails" Method="uspUpdateEmployeeDetails">
-    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="middleName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="birthDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="contactNo" Type="System.String" DbType="NChar(11)" />
-    <Parameter Name="address" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.fnSignIn" Method="fnSignIn" IsComposable="true">
     <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Boolean" />
-  </Function>
-  <Function Name="dbo.uspUpdateEmployeeDetails" Method="uspUpdateEmployeeDetails1">
-    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="middleName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="birthDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="contactNo" Type="System.String" DbType="NChar(11)" />
-    <Parameter Name="address" Type="System.String" DbType="NVarChar(50)" />
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.uspSetEmployeeStatus" Method="uspSetEmployeeStatus">
     <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
@@ -157,6 +134,52 @@
   <Function Name="dbo.uspVerifyEmployee" Method="uspVerifyEmployee">
     <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspReturnBook" Method="uspReturnBook">
+    <Parameter Name="memberID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bookID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspBorrowBook" Method="uspBorrowBook">
+    <Parameter Name="memberID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bookID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dueDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="employeeEmail" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="success" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspSendOTP" Method="uspSendOTP">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="OTP" Parameter="oTP" Type="System.String" DbType="NChar(6)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspUpdateEmployeeDetails" Method="uspUpdateEmployeeDetails">
+    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="middleName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="birthDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="contactNo" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="address" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspAddAuthor" Method="uspAddAuthor">
+    <Parameter Name="firstName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="middleName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="lastName" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspAddPublisher" Method="uspAddPublisher">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="address" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.uspAddSeries" Method="uspAddSeries">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="parts" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

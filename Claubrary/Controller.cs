@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -9,7 +10,7 @@ namespace Claubrary
 {
     internal static class Controller
     {
-        private static ClaubraryDataContext Context { get; set; } = new ClaubraryDataContext();
+        public static ClaubraryDataContext Context { get; set; } = new ClaubraryDataContext();
 
         public static string SendOTP(string email, string password)
         {
@@ -39,11 +40,11 @@ namespace Claubrary
             return (bool)Context.fnIsEmployeeVerifiedOrExists(email);
         }
 
-        public static void UpdateEmployeeDetails(string firstName, string middleName, string lastName, DateTime birthdate, string contactNo, string address)
+        public static void UpdateEmployeeDetails(string firstName, string middleName, string lastName, DateTime birthdate, string contactNo, string address, string password)
         {
             try
             {
-                Context.uspUpdateEmployeeDetails(firstName, middleName, lastName, birthdate, contactNo, address);
+                Context.uspUpdateEmployeeDetails(firstName, middleName, lastName, birthdate, contactNo, address, password);
             }
             catch (Exception e)
             {
@@ -60,6 +61,24 @@ namespace Claubrary
         public static bool SignInEmployee(string email, string password)
         {
            return (bool)Context.fnSignIn(email, password);
+        }
+
+        public static bool? BorrowBook(int memberId, int bookId)
+        {
+            bool? success = false;
+
+            Context.uspBorrowBook(memberId, bookId, DateTime.Now.AddDays(7), Auth.EmployeeEmail, ref success);
+
+            return success;
+        }
+
+        public static bool? ReturnBook(int memberId, int bookId)
+        {
+            bool? success = false;
+
+            Context.uspReturnBook(memberId, bookId, ref success);
+
+            return success;
         }
 
         public static List<Book> GetBooks()
@@ -109,5 +128,46 @@ namespace Claubrary
 
             return genres;
         }
+
+        public static List<Publisher> GetPublishers()
+        {
+            List<Publisher> publishers = new List<Publisher>();
+
+            foreach (Publisher publisher in Context.Publishers)
+            {
+                publishers.Add(publisher);
+            }
+
+            return publishers;
+        }
+
+        public static List<Member> GetMembers()
+        {
+            List <Member> members = new List<Member>();
+
+            foreach (Member member in Context.Members)
+            {
+                members.Add(member);
+            }
+
+            return members;
+        }
+
+        public static List<Borrow> GetBorrowsFromMember(Member member)
+        {
+            List<Borrow> borrows = new List<Borrow>();
+
+            foreach (Borrow borrow in Context.Borrows)
+            {
+                if (borrow.MemberID == member.MemberID)
+                {
+                    borrows.Add(borrow);
+                }
+            }
+
+            return borrows;
+        }
+
+        
     }
 }

@@ -20,6 +20,7 @@ namespace Claubrary
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow(string email)
         {
             InitializeComponent();
@@ -39,6 +40,16 @@ namespace Claubrary
         private void btnBooks_Click(object sender, RoutedEventArgs e)
         {
             new BooksWindow().ShowDialog();
+        }
+
+        private void btnMembers_Click(object sender, RoutedEventArgs e)
+        {
+            new MemberWindow().ShowDialog();
+        }
+
+        private void btnMyProfile_Click(object sender, RoutedEventArgs e)
+        {
+            new MyProfileWindow().ShowDialog();
         }
     }
 }

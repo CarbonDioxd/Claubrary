@@ -19,6 +19,8 @@ namespace Claubrary
     /// </summary>
     public partial class BooksWindow : Window
     {
+        public List<Book> Books { get; set; }
+
         public BooksWindow()
         {
             InitializeComponent();
@@ -27,14 +29,10 @@ namespace Claubrary
             LoadSearchComboBox();
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void LoadBooks()
         {
             List<Book> books = Controller.GetBooks();
+            Books = books;
 
             foreach (Book book in books)
             {
@@ -151,10 +149,7 @@ namespace Claubrary
 
             lbxBooks.Items.Clear();
 
-            foreach (Book book in results)
-            {
-                lbxBooks.Items.Add(book.Title);
-            }
+            Books = results;
 
             foreach (Book book in results)
             {
@@ -176,6 +171,17 @@ namespace Claubrary
                 lbxBooks.Items.Add(bookEntry);
             }
 
+        }
+
+        private void lbxBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lbxBooks.SelectedIndex < Books.Count)
+                new BookWindow(Books[lbxBooks.SelectedIndex]).ShowDialog();
+        }
+
+        private void btnAddBook_Click(object sender, RoutedEventArgs e)
+        {
+            new AddBookWindow().ShowDialog();
         }
     }
 }
