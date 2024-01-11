@@ -34,7 +34,17 @@ namespace Claubrary
         {
             try
             {
-                Controller.UpdateEmployeeDetails(tbxFirstName.Text, tbxMiddleName.Text, tbxLastName.Text, (DateTime)dpDate.SelectedDate, tbxContactNumber.Text, tbxAddress.Text, Password);
+                // Find employeeID
+                List<Employee> employees = Controller.GetEmployees();
+                int employeeID = -1;
+
+                foreach (Employee employee in employees)
+                {
+                    if (employee.Email == Auth.EmployeeEmail)
+                        employeeID = employee.EmployeeID;
+                }
+
+                Controller.UpdateEmployeeDetails(employeeID, tbxFirstName.Text, tbxMiddleName.Text, tbxLastName.Text, (DateTime)dpDate.SelectedDate, tbxContactNumber.Text, tbxAddress.Text, Password);
                 MessageBox.Show("Registration Complete!");
                 
                 new LoginWindow().Show();

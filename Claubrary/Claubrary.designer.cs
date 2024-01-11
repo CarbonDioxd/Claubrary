@@ -212,13 +212,6 @@ namespace Claubrary
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateEmployeeDetails")]
-		public int uspUpdateEmployeeDetails([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(11)")] string contactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string password)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), firstName, middleName, lastName, birthDate, contactNo, address, password);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspAddAuthor")]
 		public int uspAddAuthor([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string lastName)
 		{
@@ -260,6 +253,13 @@ namespace Claubrary
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), memberID, bookID, success);
 			success = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.uspUpdateEmployeeDetails")]
+		public int uspUpdateEmployeeDetails([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> employeeId, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string firstName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string middleName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string lastName, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> birthDate, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NChar(11)")] string contactNo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeId, firstName, middleName, lastName, birthDate, contactNo, address, password);
 			return ((int)(result.ReturnValue));
 		}
 	}

@@ -31,7 +31,8 @@ namespace Claubrary
 
             foreach (Employee employee1 in Controller.Context.Employees)
             {
-                employee = employee1 as Employee;
+                if (employee1.Email == Auth.EmployeeEmail)
+                    employee = employee1;
             }
 
             tbxFirstName.Text = employee.FirstName;
@@ -46,24 +47,65 @@ namespace Claubrary
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            if (tbxNewPassword.Text.Length > 0 && tbxCurrentPassword.Text.Length < 1)
+            // Password is to be changed
+            if (tbxCurrentPassword.Text.Length > 0 || tbxNewPassword.Text.Length > 0 || tbxConfirmNewPassword.Text.Length > 0)
             {
-                MessageBox.Show("Please enter your current password to change passwords");
-                return;
-            }
-            if (tbxConfirmNewPassword.Text.Length > 0 && tbxCurrentPassword.Text.Length < 1)
-            {
-                MessageBox.Show("Please enter your current password to change passwords");
-                return;
-            }
-            if (tbxNewPassword.Text.Length > 0 && tbxConfirmNewPassword.Text.Length < 1)
-            {
-                MessageBox.Show("Please confirm you new password.");
-                return;
+                if (tbxCurrentPassword.Text.Length < 1)
+                {
+                    MessageBox.Show("Please enter your current password to change passwords");
+                    return;
+                }
+                if (tbxNewPassword.Text.Length < 1)
+                {
+                    MessageBox.Show("Please enter your new password.");
+                    return;
+                }
+                if (tbxConfirmNewPassword.Text.Length < 1)
+                {
+                    MessageBox.Show("Please confirm your new password.");
+                    return;
+                }
+                if (tbxNewPassword.Text != tbxConfirmNewPassword.Text) 
+                {
+                    MessageBox.Show("New Passsword and Password Confirmation does not match.");
+                    return;
+                }
             }
 
-            Controller.Context.uspUpdateEmployeeDetails(tbxFirstName.Text, tbxMiddleName.Text, tbxLastName.Text, dpBirthDate.SelectedDate, tbxContactNumber.Text, tbxAddress.Text, tbxNewPassword.Text);
-            MessageBox.Show("Password changed successfully.");
+            // Find employeeID
+            List<Employee> employees = Controller.GetEmployees();
+            int employeeID = -1;
+            string password = "";
+
+            foreach (Employee employee in employees)
+            {
+                if (employee.Email == Auth.EmployeeEmail)
+                {
+                    employeeID = employee.EmployeeID;
+                    password = employee.Password;
+                }
+            }
+
+
+            // Password was changed
+            if (tbxCurrentPassword.Text.Length > 0 || tbxNewPassword.Text.Length > 0 || tbxConfirmNewPassword.Text.Length > 0)
+            {
+                if (tbxCurrentPassword.Text != password)
+                {
+                    Controller.Context.uspUpdateEmployeeDetails(employeeID, tbxFirstName.Text, tbxMiddleName.Text, tbxLastName.Text, dpBirthDate.SelectedDate, tbxContactNumber.Text, tbxAddress.Text, password);
+                    MessageBox.Show("Details updated. Password changed unsuccessfully (Wrong Current Password).");
+                }
+                else
+                {
+                    Controller.Context.uspUpdateEmployeeDetails(employeeID, tbxFirstName.Text, tbxMiddleName.Text, tbxLastName.Text, dpBirthDate.SelectedDate, tbxContactNumber.Text, tbxAddress.Text, tbxNewPassword.Text);
+                    MessageBox.Show("Details updated. Password changed successfully.");
+                }
+            }
+            else
+            {
+                Controller.Context.uspUpdateEmployeeDetails(employeeID, tbxFirstName.Text, tbxMiddleName.Text, tbxLastName.Text, dpBirthDate.SelectedDate, tbxContactNumber.Text, tbxAddress.Text, password);
+                MessageBox.Show("Details updated successfully.");
+            }
         }
     }
 }

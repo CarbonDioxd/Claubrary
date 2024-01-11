@@ -40,11 +40,11 @@ namespace Claubrary
             return (bool)Context.fnIsEmployeeVerifiedOrExists(email);
         }
 
-        public static void UpdateEmployeeDetails(string firstName, string middleName, string lastName, DateTime birthdate, string contactNo, string address, string password)
+        public static void UpdateEmployeeDetails(int employeeID, string firstName, string middleName, string lastName, DateTime birthdate, string contactNo, string address, string password)
         {
             try
             {
-                Context.uspUpdateEmployeeDetails(firstName, middleName, lastName, birthdate, contactNo, address, password);
+                Context.uspUpdateEmployeeDetails(employeeID, firstName, middleName, lastName, birthdate, contactNo, address, password);
             }
             catch (Exception e)
             {
@@ -181,6 +181,16 @@ namespace Claubrary
             return borrows;
         }
 
-        
+        public static List<Employee> GetEmployees()
+        {
+            List<Employee> employees = new List<Employee>();
+
+            foreach (Employee employee in Context.Employees)
+            {
+                employees.Add(employee);
+            }
+
+            return employees;
+        }
     }
 }
